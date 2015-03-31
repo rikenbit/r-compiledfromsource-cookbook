@@ -10,6 +10,10 @@ when "centos"
   package "readline-devel"
   package "gcc-gfortran"
   package "rsync"
+  package "zlib-devel"
+  package "bzip2-devel"
+  package "xz-devel"
+  package "pcre-devel"
 when "ubuntu"
 
 end
