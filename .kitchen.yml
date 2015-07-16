@@ -9,29 +9,50 @@ provisioner:
 
 platforms:
   #- name: ubuntu-12.04
-  #- name: ubuntu-14.04
-  #- name: centos-6.4
-  - name: centos-6.5
+  - name: ubuntu-14.04
     driver:
       vagrantfile_erb: Vagrantfile.erb
+    run_list:
+      - recipe[timezone-ii]
+      - recipe[ubuntu-change-source-list]
+      - recipe[apt]
+    attributes:
+      java:
+        install_flavor: "openjdk"
+        jdk_version: 7
+      apt:
+        compile_time_update: true
+      build-essential:
+        compile_time: true
+      ubuntu:
+        mirror_site_url: "http://ftp.jaist.ac.jp/pub/Linux/ubuntu/"
+        version: "14.04"
+        need_deb_src: false
+        need_update: true
+
   - name: centos-7.0
     driver:
       vagrantfile_erb: Vagrantfile.erb
-
-
-
-suites:
-  - name: r-compiledfromsource-cookbook
     run_list:
-      - recipe[timezone-ii]
-      - recipe[yum]     
-      - recipe[java]     
-      - recipe[build-essential]
-      - recipe[r-compiledfromsource]
+      - recipe[yum]
     attributes:
-      tz: "Asia/Tokyo"
       java:
+        #install_flavor: "openjdk"
+        #jdk_version: 8
         install_flavor: "oracle"
         jdk_version: 8
         oracle:
           accept_oracle_download_terms: true
+      yum:
+        main:
+          keepcache:  True
+
+suites:
+  - name: default
+    run_list:
+      - recipe[timezone-ii]
+      - recipe[java]
+      - recipe[build-essential]
+      - recipe[r-compiledfromsource]
+    attributes:
+      tz: "Asia/Tokyo"

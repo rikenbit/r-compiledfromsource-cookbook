@@ -5,7 +5,6 @@ describe 'check R version' do
   it "check R version" do
     system('echo "q()" > /tmp/showversion.R')
     system('/usr/local/R-devel/bin/R CMD BATCH /tmp/showversion.R')
-    assert system('grep "R version 3.2.0 alpha" showversion.Rout'), 'R version is not expected version. patched version is updated'
+    assert system('grep "R version 3.2.1 Patched" showversion.Rout'), 'R version is not expected version. patched version is updated'
   end
 end
-

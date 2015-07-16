@@ -15,6 +15,7 @@ when "centos"
   package "xz-devel"
   package "pcre-devel"
 when "ubuntu"
+  package "gfortran"
 
 end
 
@@ -40,9 +41,9 @@ end
 execute "R patched source compile and install" do
   command <<-CODE
 set -e
-(tar zxvf #{r_source_file} --strip=1)
+(tar zxf #{r_source_file} --strip=1)
 (chown -R #{r_owner}:#{r_group} .)
-(./configure --without-recommended-packages --enable-R-shlib --with-x=no --prefix=#{install_directory})
+(./configure #{r_configure_options})
 (./tools/rsync-recommended)
 (./tools/link-recommended)
 (make)
