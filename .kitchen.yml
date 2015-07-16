@@ -41,12 +41,8 @@ platforms:
       - recipe[yum]
     attributes:
       java:
-        #install_flavor: "openjdk"
-        #jdk_version: 8
-        install_flavor: "oracle"
-        jdk_version: 8
-        oracle:
-          accept_oracle_download_terms: true
+        install_flavor: "openjdk"
+        jdk_version: 7
       yum:
         main:
           keepcache:  True
