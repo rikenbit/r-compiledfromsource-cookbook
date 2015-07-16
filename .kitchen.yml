@@ -12,6 +12,8 @@ platforms:
   - name: ubuntu-14.04
     driver:
       vagrantfile_erb: Vagrantfile.erb
+      synced_folders:
+        - ['./result', '/tmp/result']
     run_list:
       - recipe[timezone-ii]
       - recipe[ubuntu-change-source-list]
@@ -33,6 +35,8 @@ platforms:
   - name: centos-7.0
     driver:
       vagrantfile_erb: Vagrantfile.erb
+      synced_folders:
+        - ['./result', '/tmp/result']
     run_list:
       - recipe[yum]
     attributes:
