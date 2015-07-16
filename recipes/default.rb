@@ -16,7 +16,10 @@ when "centos"
   package "pcre-devel"
 when "ubuntu"
   package "gfortran"
-
+  # for R-devel 2015-07-16
+  package "libbz2-dev"
+  package "libpcre3-dev"
+  package "liblzma-dev"
 end
 
 # install
