@@ -16,21 +16,13 @@ platforms:
         - ['./result', '/tmp/result']
     run_list:
       - recipe[timezone-ii]
-      - recipe[ubuntu-change-source-list]
-      - recipe[apt]
+      - recipe[r-compiledfromsource::change-apt]
     attributes:
       java:
         install_flavor: "openjdk"
         jdk_version: 7
-      apt:
-        compile_time_update: true
       build-essential:
         compile_time: true
-      ubuntu:
-        mirror_site_url: "http://ftp.jaist.ac.jp/pub/Linux/ubuntu/"
-        version: "14.04"
-        need_deb_src: false
-        need_update: true
 
   - name: centos-7.0
     driver:
