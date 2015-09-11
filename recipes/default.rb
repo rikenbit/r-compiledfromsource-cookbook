@@ -14,12 +14,14 @@ when "centos"
   package "bzip2-devel"
   package "xz-devel"
   package "pcre-devel"
+  package "libcurl-devel"
 when "ubuntu"
   package "gfortran"
   # for R-devel 2015-07-16
   package "libbz2-dev"
   package "libpcre3-dev"
   package "liblzma-dev"
+  package "libcurl3-gnutls-dev"
 end
 
 # install
