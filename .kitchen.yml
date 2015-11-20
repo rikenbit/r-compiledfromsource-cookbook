@@ -48,3 +48,5 @@ suites:
       - recipe[r-compiledfromsource]
     attributes:
       tz: "Asia/Tokyo"
+      r_compiledfromsource:
+        sourceurl: "http://stat.ethz.ch/R/daily/R-patched.tar.gz"
