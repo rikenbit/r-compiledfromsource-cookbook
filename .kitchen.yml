@@ -50,7 +50,6 @@ suites:
       tz: "Asia/Tokyo"
       r_compiledfromsource:
         sourceurl: "http://stat.ethz.ch/R/daily/R-patched.tar.gz"
-        #sourceurl: "http://stat.ethz.ch/R/daily/R-devel.tar.gz"
   - name: devel
     run_list:
       - recipe[timezone-ii]
@@ -60,5 +59,4 @@ suites:
     attributes:
       tz: "Asia/Tokyo"
       r_compiledfromsource:
-        #sourceurl: "http://stat.ethz.ch/R/daily/R-patched.tar.gz"
         sourceurl: "http://stat.ethz.ch/R/daily/R-devel.tar.gz"
