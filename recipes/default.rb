@@ -53,6 +53,8 @@ set -e
 (./tools/link-recommended)
 (make)
 (bin/R CMD INSTALL src/library/Recommended/MASS.tgz)
+(bin/R CMD INSTALL src/library/Recommended/lattice.tgz)
+(bin/R CMD INSTALL src/library/Recommended/Matrix.tgz)
 (make check)
 (make install)
 (chown -R #{r_owner}:#{r_group} #{install_directory})
