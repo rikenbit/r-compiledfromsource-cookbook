@@ -3,7 +3,7 @@ r_owner = node[:r_compiledfromsource][:owner]
 r_group = node[:r_compiledfromsource][:group]
 
 #
-case node.platform
+case node[:platform]
 when "centos"
   package "texlive"
   package "readline-devel"
